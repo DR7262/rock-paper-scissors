@@ -14,17 +14,23 @@
             "2": "Scissors"
         }
 
+        let playerBasePower = 1;
+
         function getComputerChoice() {
             return RPS[Math.floor(Math.random() * 3)];
         }
 
         let playerChoice = "Rock"
 
-        function compareChoices(choice1, choice2) {
-            
+        function compareChoices(playerChoice, computerChoice) {
+            if (playerChoice == computerChoice) {
+                console.log("It's a Tie!")
+            }
         }
 
         console.log(getComputerChoice());
+        console.log(compareChoices(playerChoice, getComputerChoice()));
+        
     </script>
     
 </body>

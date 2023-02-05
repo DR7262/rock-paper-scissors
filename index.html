@@ -8,7 +8,6 @@
 </head>
 <body>
     <script>
-        
         var RPS = {
             "0": "rock",
             "1": "paper",
@@ -46,20 +45,14 @@
             }
         }
 
-        function gameRound() {
+        function playRound() {
             computerChoice = getComputerChoice();
 
             let playerChoice = prompt("Choose your weapon:").toLowerCase();
 
             console.log(computerChoice);
             console.log(compareChoices(playerChoice, computerChoice));
-        }
-
-        gameRound();
-
-
-
-        
+        }        
     </script>
     
 </body>

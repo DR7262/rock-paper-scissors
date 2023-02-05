@@ -21,28 +21,44 @@
             "scissors": "rock"
         }
 
+        function toTitleCase(str) {
+            return str.replace(
+                /\w\S*/g,
+                function(txt) {
+                return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+                }
+            );
+        }
+
         function getComputerChoice() {
             return RPS[Math.floor(Math.random() * 3)];
         }
 
-        computerChoice = getComputerChoice();
-
-        let playerChoice = prompt("Choose your weapon:").toLowerCase();
-
         function compareChoices(playerChoice, computerChoice) {
             if (playerChoice == computerChoice) {
-                return "It's a Tie!"
+                return "It's a Tie! " + toTitleCase(playerChoice) + " matches " + toTitleCase(computerChoice);
             }
             else if (weakTo[playerChoice] == computerChoice) {
-                return "You Lose!"
+                return "You Lose! " + toTitleCase(playerChoice) + " loses out to " + toTitleCase(computerChoice);
             }
             else {
-                return "You Win"
+                return "You Win! " + toTitleCase(playerChoice) + " triumphantly beats " + toTitleCase(computerChoice);
             }
         }
 
-        console.log(computerChoice);
-        console.log(compareChoices(playerChoice, computerChoice));
+        function gameRound() {
+            computerChoice = getComputerChoice();
+
+            let playerChoice = prompt("Choose your weapon:").toLowerCase();
+
+            console.log(computerChoice);
+            console.log(compareChoices(playerChoice, computerChoice));
+        }
+
+        gameRound();
+
+
+
         
     </script>
     

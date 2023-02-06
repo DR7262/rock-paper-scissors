@@ -35,22 +35,22 @@
             );
         }
 
-        function getComputerChoice() {
+        function getComputerChoice() { //Creating random choice for computer
             return RPS[Math.floor(Math.random() * 3)];
         }
 
         function compareChoices(playerChoice, computerChoice) {
             if (playerChoice == computerChoice) {
                 console.log("It's a Tie! " + toTitleCase(playerChoice) + " matches " + toTitleCase(computerChoice));
-                return 2;
+                return 2; //Return value to access roundResult
             }
             else if (weakTo[playerChoice] == computerChoice) {
                 console.log("You Lose! " + toTitleCase(playerChoice) + " loses out to " + toTitleCase(computerChoice));
-                return 3;
+                return 3; //Return value to access roundResult
             }
             else {
                 console.log("You Win! " + toTitleCase(playerChoice) + " triumphantly beats " + toTitleCase(computerChoice));
-                return 1;
+                return 1; //Return value to access roundResult
             }
         }
 

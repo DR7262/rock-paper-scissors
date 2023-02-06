@@ -67,16 +67,34 @@
 
             let computerScore = 0;
             let playerScore = 0;
+            let winner = ""
 
             for (let rounds = 0; rounds < 10; rounds++) {
 
                 let currentResult = playRound();
                                 
-                if currentResult == 2) {
+                if (currentResult == 2) {
+                    rounds = rounds - 1;
                     console.log("Current score: \nPlayer: " + playerScore + "\nComputer: " + computerScore)
                 }
-            } 
-        }
+                else if (currentResult == 1) {
+                    playerScore = playerScore + 1;
+                    console.log("Current score: \nPlayer: " + playerScore + "\nComputer: " + computerScore)
+                    if (playerScore == 5) {
+                        winner = "Player"
+                        break
+                    }
+                }
+                else if (currentResult == 3) {
+                    computerScore = computerScore + 1;
+                    console.log("Current score: \nPlayer: " + playerScore + "\nComputer: " + computerScore)
+                    if (playerScore == 5) {
+                        winner = "Computer"
+                        break
+                    }
+                }   
+            }
+        } 
     </script>
     
 </body>

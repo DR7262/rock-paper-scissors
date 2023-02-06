@@ -20,6 +20,12 @@
             "scissors": "rock"
         }
 
+        var roundResult = {
+            1 : "win",
+            2 : "tie",
+            3 : "lose",
+        }
+
         function toTitleCase(str) {
             return str.replace(
                 /\w\S*/g,
@@ -35,13 +41,16 @@
 
         function compareChoices(playerChoice, computerChoice) {
             if (playerChoice == computerChoice) {
-                return "It's a Tie! " + toTitleCase(playerChoice) + " matches " + toTitleCase(computerChoice);
+                console.log("It's a Tie! " + toTitleCase(playerChoice) + " matches " + toTitleCase(computerChoice));
+                return 2;
             }
             else if (weakTo[playerChoice] == computerChoice) {
-                return "You Lose! " + toTitleCase(playerChoice) + " loses out to " + toTitleCase(computerChoice);
+                console.log("You Lose! " + toTitleCase(playerChoice) + " loses out to " + toTitleCase(computerChoice));
+                return 3;
             }
             else {
-                return "You Win! " + toTitleCase(playerChoice) + " triumphantly beats " + toTitleCase(computerChoice);
+                console.log("You Win! " + toTitleCase(playerChoice) + " triumphantly beats " + toTitleCase(computerChoice));
+                return 1;
             }
         }
 
@@ -50,12 +59,23 @@
 
             let playerChoice = prompt("Choose your weapon:").toLowerCase();
 
-            console.log(computerChoice);
-            console.log(compareChoices(playerChoice, computerChoice));
+            return(compareChoices(playerChoice, computerChoice));
+            
         }
         
         function game() {
-            
+
+            let computerScore = 0;
+            let playerScore = 0;
+
+            for (let rounds = 0; rounds < 10; rounds++) {
+
+                let currentResult = playRound();
+                                
+                if currentResult == 2) {
+                    console.log("Current score: \nPlayer: " + playerScore + "\nComputer: " + computerScore)
+                }
+            } 
         }
     </script>
     

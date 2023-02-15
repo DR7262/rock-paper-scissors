@@ -26,13 +26,15 @@ div {
 }
 
 .button {
-    border: 1rem solid blanchedalmond;
+    border: .5rem solid blanchedalmond;
     border-radius: .5rem;
-    background-color:midnightblue;
+    background-color: rgba(25, 25, 112, .20);
     color: antiquewhite;
-    width: 10rem;
+    width: 7rem;
     height: 7rem;
     margin: 20px;
+    font-size: 1rem;
+    text-align: center;
 }
 
 .scoreboard {

@@ -28,7 +28,7 @@
             <p>Computer Score:</p>
         </div>
         <div class = "textDisplay">
-            <p>Pick a weapon to start playing!</p>
+            <p id = "currentText">Pick a weapon to start playing!</p>
         </div>
     </div>
 
@@ -66,15 +66,18 @@
 
         function compareChoices(playerChoice, computerChoice) {
             if (playerChoice == computerChoice) {
-                console.log("It's a Tie! " + toTitleCase(playerChoice) + " matches " + toTitleCase(computerChoice));
+                let text = "It's a Tie! " + toTitleCase(playerChoice) + " matches " + toTitleCase(computerChoice);
+                document.getElementById("currentText").innerHTML = text;
                 return 2; //Return value to access roundResult
             }
             else if (weakTo[playerChoice] == computerChoice) {
-                console.log("You Lose! " + toTitleCase(playerChoice) + " loses out to " + toTitleCase(computerChoice));
+                let text = "You Lose! " + toTitleCase(playerChoice) + " loses out to " + toTitleCase(computerChoice);
+                document.getElementById("currentText").innerHTML = text;
                 return 3; //Return value to access roundResult
             }
             else {
-                console.log("You Win! " + toTitleCase(playerChoice) + " triumphantly beats " + toTitleCase(computerChoice));
+                let text = "You Win! " + toTitleCase(playerChoice) + " triumphantly beats " + toTitleCase(computerChoice);
+                document.getElementById("currentText").innerHTML = text;
                 return 1; //Return value to access roundResult
             }
         }
@@ -83,10 +86,8 @@
             computerChoice = getComputerChoice();
 
             let playerChoice = event.target.className;
-            console.log(playerChoice)
 
             return(compareChoices(playerChoice, computerChoice));
-            
         }
         
         function game() {

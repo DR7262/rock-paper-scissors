@@ -25,7 +25,7 @@ div {
     flex-direction: row;
 }
 
-.button {
+button {
     border: .5rem solid blanchedalmond;
     border-radius: .5rem;
     background-color: rgba(25, 25, 112, .20);

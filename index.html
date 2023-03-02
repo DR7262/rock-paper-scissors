@@ -24,8 +24,8 @@
     </div>
     <div class = "scoreboard">
         <div class = "scorecard">
-            <p>Player Score:</p>
-            <p>Computer Score:</p>
+            <p id = "playerWins">Player Score: </p>
+            <p id = "computerWins">Computer Score: </p>
         </div>
         <div class = "textDisplay">
             <p id = "currentText">Pick a weapon to start playing!</p>
@@ -50,6 +50,10 @@
             2 : "tie",
             3 : "lose",
         }
+        
+        let computerScore = 0;
+        let playerScore = 0;
+        let winner = ""
 
         function toTitleCase(str) {
             return str.replace(
@@ -83,18 +87,30 @@
         }
 
         function playRound() {
-            computerChoice = getComputerChoice();
-
+            let computerChoice = getComputerChoice();
             let playerChoice = event.target.className;
 
-            return(compareChoices(playerChoice, computerChoice));
+            trackResult(compareChoices(playerChoice, computerChoice));
+        }
+        
+        function trackResult(currentResult) {
+            if (currentResult == 1) {
+                playerScore = playerScore + 1;
+                if (playerScore == 5) {
+                    winner = "Player"
+                }
+            }
+            else if (currentResult == 3) {
+                computerScore = computerScore + 1;
+                if (computerScore == 5) {
+                    winner = "Computer"
+                }
+            }
+            document.getElementById("playerWins").innerHTML = "Player Score: " + playerScore;
+            document.getElementById("computerWins").innerHTML = "Computer Score: " + computerScore;
         }
         
         function game() {
-
-            let computerScore = 0;
-            let playerScore = 0;
-            let winner = ""
 
             for (let rounds = 0; rounds < 10; rounds++) {
 

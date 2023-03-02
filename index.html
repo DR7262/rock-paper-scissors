@@ -64,10 +64,6 @@
             );
         }
 
-        function getComputerChoice() { //Creating random choice for computer
-            return RPS[Math.floor(Math.random() * 3)];
-        }
-
         function compareChoices(playerChoice, computerChoice) {
             if (playerChoice == computerChoice) {
                 let text = "It's a Tie! " + toTitleCase(playerChoice) + " matches " + toTitleCase(computerChoice);
@@ -87,7 +83,7 @@
         }
 
         function playRound() {
-            let computerChoice = getComputerChoice();
+            let computerChoice = RPS[Math.floor(Math.random() * 3)];
             let playerChoice = event.target.className;
 
             trackResult(compareChoices(playerChoice, computerChoice));
@@ -109,43 +105,6 @@
             document.getElementById("playerWins").innerHTML = "Player Score: " + playerScore;
             document.getElementById("computerWins").innerHTML = "Computer Score: " + computerScore;
         }
-        
-        function game() {
-
-            for (let rounds = 0; rounds < 10; rounds++) {
-
-                let currentResult = playRound();
-                                
-                if (currentResult == 2) {
-                    rounds = rounds - 1;
-                    console.log("Current score: \nPlayer: " + playerScore + "\nComputer: " + computerScore)
-                }
-                else if (currentResult == 1) {
-                    playerScore = playerScore + 1;
-                    console.log("Current score: \nPlayer: " + playerScore + "\nComputer: " + computerScore)
-                    if (playerScore == 5) {
-                        winner = "Player"
-                        break
-                    }
-                }
-                else if (currentResult == 3) {
-                    computerScore = computerScore + 1;
-                    console.log("Current score: \nPlayer: " + playerScore + "\nComputer: " + computerScore)
-                    if (computerScore == 5) {
-                        winner = "Computer"
-                        break
-                    }
-                }   
-            }
-
-            if (winner == "Player") {
-                console.log("You have beaten the computer! Congratulations!")
-            }
-
-            if (winner == "Computer") {
-                console.log("You have lost the fight! Please try again. For humanity's sake.")
-            }
-        } 
     </script>
     
 </body>

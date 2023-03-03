@@ -24,8 +24,8 @@
     </div>
     <div class = "scoreboard">
         <div class = "scorecard">
-            <p id = "playerWins">Player Score: </p>
-            <p id = "computerWins">Computer Score: </p>
+            <p id = "playerWins">Player Score: 0</p>
+            <p id = "computerWins">Computer Score: 0</p>
         </div>
         <div class = "textDisplay">
             <p id = "currentText">Pick a weapon to start playing!</p>
@@ -47,7 +47,7 @@
 
         var weakTo = {
             "rock": "paper",
-            "saper": "scissors",
+            "paper": "scissors",
             "scissors": "rock"
         }
 
@@ -121,8 +121,18 @@
             else {
             splashScreen.style.display = "none";
             }
-            
         }
+
+        let restart = document.getElementById("restart")
+
+        restart.addEventListener("click", function() {
+            toggleSplashScreen();
+            computerScore = 0;
+            playerScore = 0;
+            document.getElementById("playerWins").innerHTML = "Player Score: " + playerScore;
+            document.getElementById("computerWins").innerHTML = "Computer Score: " + computerScore;
+            document.getElementById("currentText").innerHTML = "Pick a weapon to start playing!"
+        }); 
     </script>
     
 </body>

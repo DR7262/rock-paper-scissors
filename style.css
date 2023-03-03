@@ -21,7 +21,7 @@ div {
     background-color: aliceblue;
 }
 
-.splash {
+#splash {
     display: none;
     height: 100%;
     width: 100%;
@@ -61,7 +61,7 @@ button {
     width: 7rem;
     height: 7rem;
     margin: 20px;
-    font-size: 1rem;
+    font-size: .8rem;
     text-align: center;
     box-shadow: 0 8px #999;
 }

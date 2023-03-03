@@ -31,7 +31,7 @@
             <p id = "currentText">Pick a weapon to start playing!</p>
         </div>
     </div>
-    <div class = "splash">
+    <div id = "splash">
         <div class = "splashBox">
             <p id = "finalResult">You Win!</p>
             <button id = "restart">Play Again</button>
@@ -99,7 +99,7 @@
             if (currentResult == 1) {
                 playerScore = playerScore + 1;
                 if (playerScore == 5) {
-                    winner = "Player"
+                    winner = "Player" 
                 }
             }
             else if (currentResult == 3) {
@@ -110,6 +110,16 @@
             }
             document.getElementById("playerWins").innerHTML = "Player Score: " + playerScore;
             document.getElementById("computerWins").innerHTML = "Computer Score: " + computerScore;
+        }
+        
+        function toggleSplashScreen() {
+            let splashScreen = document.getElementById("splash");
+            if (splashScreen.style.display == "none") {
+                splashScreen.style.display = "flex";
+            }
+            else {
+            splashScreen.style.display = "none";
+            }
         }
     </script>
     

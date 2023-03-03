@@ -59,7 +59,6 @@
         
         let computerScore = 0;
         let playerScore = 0;
-        let winner = ""
 
         function toTitleCase(str) {
             return str.replace(
@@ -99,13 +98,15 @@
             if (currentResult == 1) {
                 playerScore = playerScore + 1;
                 if (playerScore == 5) {
-                    winner = "Player" 
+                    document.getElementById("finalResult").innerHTML = "You Win!";
+                    toggleSplashScreen();
                 }
             }
             else if (currentResult == 3) {
                 computerScore = computerScore + 1;
                 if (computerScore == 5) {
-                    winner = "Computer"
+                    document.getElementById("finalResult").innerHTML = "You Lose!";
+                    toggleSplashScreen();
                 }
             }
             document.getElementById("playerWins").innerHTML = "Player Score: " + playerScore;
@@ -114,12 +115,13 @@
         
         function toggleSplashScreen() {
             let splashScreen = document.getElementById("splash");
-            if (splashScreen.style.display == "none") {
+            if (splashScreen.style.display != "flex") {
                 splashScreen.style.display = "flex";
             }
             else {
             splashScreen.style.display = "none";
             }
+            
         }
     </script>
     
